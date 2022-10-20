@@ -1,7 +1,8 @@
-import "./App.css";
+import "./App.scss";
 import Valoran from "./Valoran";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'boxicons/css/boxicons.min.css';
 
 function App() {
   return (

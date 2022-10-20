@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Aspect from "../../utils/API/Aspect";
 import { toast } from "react-toastify";
-import "./index.css"
+import "./index.scss"
 
 export default function Dash() {
-  const [test, setTest] = useState([]);
+  // const [test, setTest] = useState([]);
   const [nick, setNick] = useState("");
   const [champion, setChampion] = useState("");
   const [select, setSelect] = useState({});
@@ -12,12 +12,10 @@ export default function Dash() {
   async function Status() {
     await Aspect.get(`summoner/${nick}`)
       .then((res) => {
-        console.log(res.data);
-        setTest(res.data);
+        // setTest(res.data);
         setNick("");
       })
       .catch((err) => {
-        console.log(err);
         setNick("");
       });
   }
