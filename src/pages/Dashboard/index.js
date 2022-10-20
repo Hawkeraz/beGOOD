@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Aspect from "../../utils/API/Aspect";
+import { toast } from "react-toastify";
+import "./index.css"
 
 export default function Dash() {
   const [test, setTest] = useState([]);
@@ -30,15 +32,56 @@ export default function Dash() {
       });
   }
 
+  function login(){
+    var usuario = "hawkey";
+    var senha = "caguei"
+    
+    if(nick === usuario){
+      if(champion === senha){
+        toast.success('usuario logado com sucesso')
+      }
+      else{
+        toast.error('senha incorreta')
+      }
+    }
+    else{
+      toast.warn('Usuario Incorreto')
+    }
+  }
+
   return (
     <div>
-      <span>Nick:</span>
-      <input value={nick} onChange={(e) => setNick(e.target.value)} />
-      <button onClick={() => Status()}>Pesquisar</button>
-      <span>Champion:</span>
-      <input value={champion} onChange={(e) => setChampion(e.target.value)} />
-      <button onClick={() => Champions()}>Pesquisar</button>
-      <span>{select?.lore}</span>
+      <div className="titulo">
+        <h1>TEST DE BACKEND</h1>
+      </div>
+
+      <div className="campos">
+
+        <div className="field">
+          <span>Usuario:</span>
+          <input value={nick} onChange={(e) => setNick(e.target.value)} />
+          <button onClick={() => Status()}>Pesquisar</button>
+        </div>
+
+        <div className="field">
+          <span>Senha:</span>
+          <input value={champion} onChange={(e) => setChampion(e.target.value)} />
+          <button onClick={() => Champions()}>Pesquisar</button>
+        </div>
+
+        <button onClick={() => login()}>EXEMPLO</button>
+
+      </div>
+
+      <div className="info">
+        <span>{select?.lore}</span>
+        {/* <div>
+          <span>{select?.spells[0].name}</span>
+          <span>{select?.spells[1].name}</span>
+          <span>{select?.spells[2].name}</span>
+          <span>{select?.spells[3].name}</span>
+        </div> */}
+      </div>
     </div>
   );
 }

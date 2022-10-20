@@ -1,0 +1,29 @@
+.campos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.field{
+    margin-left: 10vh;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aqua;
+    margin: 2vh;
+    border-radius: 6px;
+}
+
+.info span{
+    margin: 1vh;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
