@@ -23,7 +23,7 @@ export default function Dash() {
   async function Champions() {
     await Aspect.get(`champion/${champion}`)
       .then((res) => {
-        setSelect(res.data.data[champion]);
+        setSelect(res.data);
       })
       .catch((err) => {
         console.log(err);

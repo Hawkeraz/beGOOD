@@ -33,7 +33,7 @@ const Sidebar = () => {
                         <i className='bx bxs-wink-smile'></i>
                         beGood
                     </div>
-                    <hr class='solid'/>
+                    {/* <hr class='solid'/> */}
                 </div>
             </Link>
             <div ref={sidebarRef} className="sidebar__menu">
