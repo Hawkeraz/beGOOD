@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
+import "./layout.scss"
 
 const Layout = () => {
     return (
-        <div style = {{padding: '50px 0px 0px 370px'}}>
+        <div className="layout">
             <Sidebar />
             <Outlet />
         </div>

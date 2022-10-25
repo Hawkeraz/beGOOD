@@ -9,7 +9,7 @@
     &__logo {
         display: grid;
         place-items: center;
-        height: 12vh;
+        height: 9vh;
         font-size: 3rem;
         font-weight: 700;
         font-family: 'Dosis', sans-serif;
@@ -19,15 +19,9 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
-
-            i {
+            i{
                 margin-right: 2vh;
             }
-        }
-
-        hr {
-            width: 100%;
         }
     }
 
@@ -71,6 +65,67 @@
             z-index: -1;
             transform: translateX(-50%);
             transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 60px;
+        background-color: #343C60;
+
+        &__logo {
+            display: grid;
+            place-items: center;
+            height: 9vh;
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Dosis', sans-serif;
+            color: #fff;
+    
+            &__smile {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                i{
+                    margin-left: 0.6vh;
+                }
+            }
+        }
+
+        &__menu {
+            position: relative;
+
+            &__item {
+                display: flex;
+                align-items: center;
+                place-content: flex-start;
+                padding: 1rem 1rem 1rem 1rem;
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: #fff;
+                transition: color 0.3s ease-in-out;
+
+                &.active {
+                    color: #fff;
+                }
+
+                &__icon {
+                    margin-right: 1rem;
+
+                    i {
+                        font-size: 1.75rem;
+                    }
+                }
+
+                &:hover {
+                    color: #72b8f8;
+                }
+            }
         }
     }
 }

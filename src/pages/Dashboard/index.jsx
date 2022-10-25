@@ -8,15 +8,14 @@ export default function Dash() {
   const [nick, setNick] = useState("");
   const [champion, setChampion] = useState("");
   const [select, setSelect] = useState({});
+  const [image, setImage] = useState({});
 
   async function Status() {
     await Aspect.get(`summoner/${nick}`)
       .then((res) => {
-        // setTest(res.data);
-        setNick("");
+        setImage(res.data)
       })
       .catch((err) => {
-        setNick("");
       });
   }
 
@@ -30,49 +29,27 @@ export default function Dash() {
       });
   }
 
-  function login(){
-    var usuario = "hawkey";
-    var senha = "caguei"
-    
-    if(nick === usuario){
-      if(champion === senha){
-        toast.success('usuario logado com sucesso')
-      }
-      else{
-        toast.error('senha incorreta')
-      }
-    }
-    else{
-      toast.warn('Usuario Incorreto')
-    }
-  }
-
   return (
     <div>
       <div className="titulo">
         <h1>TEST DE BACKEND</h1>
       </div>
-
       <div className="campos">
-
         <div className="field">
           <span>Usuario:</span>
           <input value={nick} onChange={(e) => setNick(e.target.value)} />
           <button onClick={() => Status()}>Pesquisar</button>
         </div>
-
         <div className="field">
-          <span>Senha:</span>
+          <span>Champion:</span>
           <input value={champion} onChange={(e) => setChampion(e.target.value)} />
           <button onClick={() => Champions()}>Pesquisar</button>
         </div>
-
-        <button onClick={() => login()}>EXEMPLO</button>
-
       </div>
 
       <div className="info">
         <span>{select?.lore}</span>
+        <img src={image}/>
         {/* <div>
           <span>{select?.spells[0].name}</span>
           <span>{select?.spells[1].name}</span>

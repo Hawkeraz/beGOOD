@@ -6,6 +6,7 @@ import { sideNavItems } from './menus';
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [stepHeight, setStepHeight] = useState(0);
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const sidebarRef = useRef();
     const indicatorRef = useRef();
     const location = useLocation();
@@ -25,17 +26,34 @@ const Sidebar = () => {
         setActiveIndex(curPath.length === 0 ? 0 : activeItem)
     }, [location])
 
+    //window change size
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+    function getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height
+        };
+    }
+
     return (
         <div className='sidebar'>
-            <Link to={'/home'}>
-                <div className='sidebar__logo'>
-                    <div className='sidebar__logo__smile'>
-                        <i className='bx bxs-wink-smile'></i>
-                        beGood
-                    </div>
-                    {/* <hr class='solid'/> */}
+            <div className='sidebar__logo'>
+                <div className='sidebar__logo__smile'>
+                    <i className='bx bxs-wink-smile' />
+                    {windowDimensions.width >= 1000 ?
+                        'beGood'
+                        : null}
                 </div>
-            </Link>
+            </div>
             <div ref={sidebarRef} className="sidebar__menu">
                 <div
                     ref={indicatorRef}
@@ -51,9 +69,11 @@ const Sidebar = () => {
                                 <div className="sidebar__menu__item__icon">
                                     {item.icon}
                                 </div>
-                                <div className="sidebar__menu__item__text">
-                                    {item.display}
-                                </div>
+                                {windowDimensions.width >= 1000 ?
+                                    <div className="sidebar__menu__item__text">
+                                        {item.display}
+                                    </div> :
+                                    null}
                             </div>
                         </Link>
                     ))
