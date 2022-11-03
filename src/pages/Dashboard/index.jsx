@@ -37,7 +37,7 @@ export default function Dash() {
       <div className="campos">
         <div className="field">
           <span>Usuario:</span>
-          <input value={nick} onChange={(e) => setNick(e.target.value)} />
+          <input value={nick} onChange={(e) => setNick(e.target.value)}/>
           <button onClick={() => Status()}>Pesquisar</button>
         </div>
         <div className="field">
