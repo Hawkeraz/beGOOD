@@ -4,7 +4,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import 'boxicons/css/boxicons.min.css';
 
-function App() {
+export default function App() {
+
   return (
     <div>
       <Valoran />
@@ -12,5 +13,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

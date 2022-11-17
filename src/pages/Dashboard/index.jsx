@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Aspect from "../../utils/API/Aspect";
 import { toast } from "react-toastify";
 import "./index.scss"
+import Gatinho from "../paginaMuzao/gatinho";
 
 export default function Dash() {
   // const [test, setTest] = useState([]);
@@ -37,7 +38,7 @@ export default function Dash() {
       <div className="campos">
         <div className="field">
           <span>Usuario:</span>
-          <input value={nick} onChange={(e) => setNick(e.target.value)}/>
+          <input value={nick} onChange={(e) => setNick(e.target.value)} />
           <button onClick={() => Status()}>Pesquisar</button>
         </div>
         <div className="field">
@@ -49,7 +50,7 @@ export default function Dash() {
 
       <div className="info">
         <span>{select?.lore}</span>
-        <img src={image}/>
+        <img src={image} />
         {/* <div>
           <span>{select?.spells[0].name}</span>
           <span>{select?.spells[1].name}</span>
